@@ -9,12 +9,13 @@ public class GameManager : MonoBehaviour
     public GameObject[] points;
     public float rangeRespawnX;
     public float rangeRespawnZ;
+    public float CountDownTime;
+    public float ChangePosTime;
     
     // Start is called before the first frame update
     void Start()
     {
-        Time.timeScale = 1f;
-        InvokeRepeating("ChangePointsPos", 1, 20);
+        InvokeRepeating("ChangePointsPos", 1, ChangePosTime);
     }
 
     // Update is called once per frame
@@ -25,7 +26,7 @@ public class GameManager : MonoBehaviour
 
     public void ChangePointsPos()
     {
-        int mountToRespawn = Random.Range(0, points.Length);
+        int mountToRespawn = Random.Range(1, points.Length);
 
         for (int i = 0; i < mountToRespawn; i++)
         {
@@ -54,7 +55,7 @@ public class GameManager : MonoBehaviour
     IEnumerator CountDown()
     {
         Debug.Log("CountDown");
-        yield return new WaitForSeconds(30);
+        yield return new WaitForSeconds(CountDownTime);
 
         int mountToDisable = Random.Range(0, points.Length);
         Debug.Log("Mount to disable: " + mountToDisable);
