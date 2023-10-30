@@ -55,10 +55,10 @@ public class Move : MonoBehaviour
             
             ResetScene();
         }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            WinScene();
-        }
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    WinScene();
+        //}
 
         float horizontalMove = Input.GetAxis("Horizontal");
         float verticalMove = Input.GetAxis("Vertical");
